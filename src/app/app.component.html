@@ -1,7 +1,7 @@
 <app-header (pageChangedEvent)="incrementHitCounter()" #headerComponent></app-header>
-<app-page1 *ngIf="headerComponent.pageRequested===1"></app-page1>
-<app-page2 *ngIf="headerComponent.pageRequested===2" #page2Component></app-page2>
-<app-page3 *ngIf="headerComponent.pageRequested===3"></app-page3>
+<app-page1 [hidden]="headerComponent.pageRequested!==1"></app-page1>
+<app-page2 [hidden]="headerComponent.pageRequested!==2" #page2Component></app-page2>
+<app-page3 [hidden]="headerComponent.pageRequested!==3"></app-page3>
 <app-footer #footerComponent [lastAccessed]="startTime"></app-footer>
 <button (click)="updateLastAccessed()">Update last accessed</button>
 

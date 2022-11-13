@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
   onPageChange(page: number) {
     this.pageRequested = page;
+    this.pageChangedEvent.emit();
   }
 
 }
