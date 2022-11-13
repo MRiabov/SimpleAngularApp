@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public lastAccessed='';
+
+  constructor() {}
+
 
   ngOnInit(): void {
+  }
+
+  onAccess(access: string){
+    this.lastAccessed=access;
   }
 
 }
