@@ -5,22 +5,16 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent /*implements OnInit*/{
 
   pageRequested = 1;
 
   @Output()
-  pageChangedEvent = new EventEmitter();
+  pageChangedEvent = new EventEmitter<number>();
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
-  onPageChange(page: number) {
-    this.pageRequested = page;
-    this.pageChangedEvent.emit();
+  onPageChange(pageNumber: number) {
+    this.pageRequested = pageNumber;
+    this.pageChangedEvent.emit(pageNumber);
   }
 
 }

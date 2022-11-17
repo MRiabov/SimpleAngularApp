@@ -13,6 +13,8 @@ export class AppComponent implements OnInit{
   @ViewChild('page2Component')
   page2Component!:Page2Component;
 
+  currentPageNumber:number =1;
+
   startTime: string='';
 
   @ViewChild('footerComponent')
@@ -27,7 +29,10 @@ export class AppComponent implements OnInit{
     this.startTime=new Date().toString();
   }
 
-  incrementHitCounter(){
-    this.page2Component.incrementHitCounter();
+  incrementHitCounter(pageNumber:number){
+    this.currentPageNumber=pageNumber;
+    if (pageNumber===2) {
+      this.page2Component.incrementHitCounter();
+    }
   }
 }
