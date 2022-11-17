@@ -20,4 +20,10 @@ describe('DataService', () => {
     service.addNewBook(new Book('123','123',123));
     expect(service.books.length).toBe(sizeStart+1)
   })
+
+  it('event emitter should run an event when a book is added', function () {
+    spyOn(service.bookAddedEvent, 'emit');
+    service.addNewBook(new Book('123','123',123));
+    expect(service.bookAddedEvent.emit).toHaveBeenCalled();
+  });
 });

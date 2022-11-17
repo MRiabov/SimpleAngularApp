@@ -1,11 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
+import {Page1Component} from "./page1/page1.component";
+import {Page2Component} from "./page2/page2.component";
+import {Page3Component} from "./page3/page3.component";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
+        AppComponent, HeaderComponent, FooterComponent, Page1Component, Page2Component, Page3Component
       ],
     }).compileComponents();
   });
@@ -19,7 +24,7 @@ describe('AppComponent', () => {
   it(`should have as title 'untitled'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('untitled');
+    expect(app.title).toEqual('Page 1');
   });
 
   it('should render title', () => {
