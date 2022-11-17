@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,7 @@ export class FooterComponent implements OnInit {
   @Input()
   public lastAccessed='';
 
-  constructor() {}
+  constructor(private dataService:DataService) {}
 
 
   ngOnInit(): void {
