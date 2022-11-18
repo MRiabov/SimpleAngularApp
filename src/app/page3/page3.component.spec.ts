@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { Page3Component } from './page3.component';
+import {Page3Component} from './page3.component';
+import {DataService} from "../data.service";
+import {Book} from "../model/Book";
 
 describe('Page3Component', () => {
   let component: Page3Component;
@@ -8,9 +10,9 @@ describe('Page3Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Page3Component ]
+      declarations: [Page3Component]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(Page3Component);
     component = fixture.componentInstance;
@@ -19,6 +21,13 @@ describe('Page3Component', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should increment number of books written by matt correctly', () => {
+    const startValue = component.getNumberOfBooksWrittenByMatt();
+    const dataService = fixture.debugElement.injector.get(DataService)
+    component.addNewBook();
+    expect(component.getNumberOfBooksWrittenByMatt).toEqual(startValue + 1)
   });
 
 
